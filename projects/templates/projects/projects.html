@@ -35,6 +35,7 @@
       </div>
     </div>
   </section>
+
   <!-- Search Result: DevList -->
   <section class="projectsList">
     <div class="container">
@@ -45,7 +46,7 @@
             <a href="{% url 'project' project.id %}" class="project">
               <img
                 class="project__thumbnail"
-                src="{{ project.featured_image.url}}"
+                src="{{ project.featured_image.url }}"
                 alt="project thumbnail"
               />
               <div class="card__body">
@@ -54,7 +55,7 @@
                   <a
                     class="project__author"
                     href="{% url 'project' project.id %}"
-                    >By Dennis Ivanov</a
+                    >By {{project.owner.name}}</a
                   >
                 </p>
                 <p class="project--rating">
