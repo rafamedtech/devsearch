@@ -55,7 +55,7 @@
     margin-right: 2%;
   }
 
-  .grid--two > .column {
+  .grid--two .column {
     flex-basis: 48%;
   }
 }
