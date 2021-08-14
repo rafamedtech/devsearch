@@ -519,10 +519,16 @@ img {
 /*========== Projects ==========*/
 
 .project__thumbnail {
-  height: 25rem;
+  height: auto;
+  width: 100%
   object-fit: cover;
   object-position: top center;
 }
+/* .project__thumbnail {
+  height: 25rem;
+  object-fit: cover;
+  object-position: top center;
+} */
 
 .project__title {
   font-size: 2rem;
