@@ -10,7 +10,7 @@
       </div>
 
       <div class="hero-section__search">
-        <form class="form" action="{% url 'profiles' %}" method="get">
+        <form id="searchForm" class="form" action="{% url 'profiles' %}" method="get">
           <div class="form__field">
             <label for="formInput#search">Search Developers </label>
             <input
@@ -37,11 +37,7 @@
           <div class="dev">
             <a href="{% url 'user-profile' profile.id %}" class="card__body">
               <div class="dev__profile">
-                <img
-                  class="avatar avatar--md"
-                  src="{{ profile.profile_image.url}}"
-                  alt="image"
-                />
+                <img class="avatar avatar--md" src="{{ profile.profile_image.url}}" alt="image" />
                 <div class="dev__meta">
                   <h3>{{ profile.name}}</h3>
                   <h5>{{ profile.short_intro|slice:"60"}}</h5>
@@ -62,6 +58,7 @@
       </div>
     </div>
   </section>
+  {% include 'pagination.html' with queryset=profiles custom_range=custom_range %}
 </main>
 
 {% endblock content %}
