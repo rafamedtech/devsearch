@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-aedbc)vjox01c$$0y!stbay1h$$$^$-clu=i79$erh7y4g7b3b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'mywebsite.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'mydevsearch.herokuapp.com']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
+    'storages',
 
 ]
 
@@ -123,10 +124,21 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'devsearch',
+        'USER': 'rafamed',
+        'PASSWORD': 'A7cFb6b3',
+        'HOST': 'database-1.c84wxrbnn8pk.us-east-2.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -189,3 +201,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_FILE_OVERWRITE = False
+
+AWS_ACCESS_KEY_ID = 'AKIAUAS6QGKR57HE6ENP'
+AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_STORAGE_BUCKET_NAME = 'mydevsearch-bucket'
+
+if os.getcwd() == '/app':
+    DEBUG = False
